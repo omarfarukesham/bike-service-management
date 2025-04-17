@@ -1,3 +1,7 @@
+
+
+
+
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import router from './app/routes';
@@ -14,6 +18,11 @@ app.use(cookieParser())
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+
+app.get('/', (req, res) => {
+  res.send('Bike service management api server is running!!!');
+}
+);
 
 
 app.listen(PORT, () => {
@@ -42,8 +51,3 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-//for showing the server is running
-app.get('/', (req, res) => {
-  res.send('Bike service management api server is running!!!');
-}
-);
