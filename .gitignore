@@ -20,7 +20,6 @@ package-lock.json
 /prisma/dev.db-journal
 
 # Build output
-/dist
 /build
 /.next
 /out
@@ -49,4 +48,3 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
-.vercel
