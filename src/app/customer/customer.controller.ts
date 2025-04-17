@@ -33,50 +33,50 @@ const getAllCustomers = catchAsync(
 )
 
 
-// const getSingleCustomerFromDB = catchAsync(
-//    async (req, res) => {
-//       const { id } = req.params;
-//       const result = await customerService.getSingleCustomerUser(id);
-//       sendResponse(res, {
-//          statusCode: httpStatus.OK,
-//          message: "Single Customer info successfully",
-//          success: true,
-//          data: result,
-//       })
-//    }
-// )
-// const updateCustomerFromDB = catchAsync(
-//    async (req, res) => {
-//       const { id } = req.params;
-//       const data = req.body;
-//       const result = await customerService.updateCustomerUser(id, data);
-//       sendResponse(res, {
-//          statusCode: httpStatus.OK,
-//          message: "Customer updated successfully",
-//          success: true,
-//          data: result,
-//       });
-//    }
-// )
-// const deleteCustomerFromDB = catchAsync(
-//    async (req, res) => {
-//       const { id } = req.params;
-//       const result = await customerService.deleteCustomerUser(id);
-//       sendResponse(res, {
-//          statusCode: httpStatus.OK,
-//          message: "Customer deleted successfully",
-//          success: true,
-//          data: result,
-//       });
-//    }
-// )
+const getSingleCustomerFromDB = catchAsync(
+   async (req, res) => {
+      const { id } = req.params;
+      const result = await customerService.getSingleCustomerUser(id);
+      sendResponse(res, {
+         statusCode: httpStatus.OK,
+         message: "Single Customer info successfully",
+         success: true,
+         data: result,
+      })
+   }
+)
+const updateCustomerFromDB = catchAsync(
+   async (req, res) => {
+      const { id } = req.params;
+      const data = req.body;
+      const result = await customerService.updateCustomerUser(id, data);
+      sendResponse(res, {
+         statusCode: httpStatus.OK,
+         message: "Customer updated successfully",
+         success: true,
+         data: result,
+      });
+   }
+)
+const deleteCustomerFromDB = catchAsync(
+   async (req, res) => {
+      const { id } = req.params;
+      const result = await customerService.deleteCustomerUser(id);
+      sendResponse(res, {
+         statusCode: httpStatus.OK,
+         message: "Customer deleted successfully",
+         success: true,
+         data: result,
+      });
+   }
+)
 
 
 
 export const CustomerController = {
    createCustomer,
    getAllCustomers,
-//    getSingleCustomerFromDB,
-//    updateCustomerFromDB,
-//    deleteCustomerFromDB
+   getSingleCustomerFromDB,
+   updateCustomerFromDB,
+   deleteCustomerFromDB
 }

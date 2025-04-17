@@ -3,12 +3,17 @@ const router = express.Router();
 
 import { CustomerController } from "./customer.controller";
 
+
+// const checkingFun =()=>{
+//     console.log('hi')
+//     next()
+// }
+
 router.post("/", CustomerController.createCustomer);
 router.get("/", CustomerController.getAllCustomers);
-// router.get("/:id", AdminController.getSingleAdminFromDB);
-// router.patch("/:id", validateRequest(AdminValidation.update), AdminController.updateAdminFromDB);
-// router.delete("/:id", AdminController.deleteAdminFromDB);
-// router.delete("/soft/:id", AdminController.softDeleteAdminFromDB);
+router.get("/:id", CustomerController.getSingleCustomerFromDB);
+router.put("/:id", CustomerController.updateCustomerFromDB);
+router.delete("/:id", CustomerController.deleteCustomerFromDB);
 
 
 export const CustomerRoutes = router;

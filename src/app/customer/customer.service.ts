@@ -44,15 +44,45 @@ const getAllCustomers = async (params: any) => {
     return result;
 };
 
+const getSingleCustomerUser = async (id: string) => {
+    const customer = await prisma.customer.findUniqueOrThrow({
+        where: {
+            customerId: id
+        }
+    });
+   
+    return customer;
+}
+
+const updateCustomerUser = async (id: string, data: any) => {
+    console.log('hello customer service', data)
+    const customer = await prisma.customer.update({
+        where: {
+            customerId: id
+        },
+        data: {
+            name: data.name,
+            phone: data.phone,
+        }
+    });
+    return customer;
+}
+
+const deleteCustomerUser = async (id: string) => {
+    const customer = await prisma.customer.delete({
+        where: {
+            customerId: id
+        }
+    });
+    return customer;
+}
 
 
 export const customerService = {
     createCustomer,
     getAllCustomers,
-    // getSingleCustomerUser,
-    // updateCustomerUser,
-    // deleteCustomerUser,
-    // softDeleteCustomerUser,
-    // getAllCustomers,
-    // getSingleCustomerUser,
+    getSingleCustomerUser,
+    updateCustomerUser,
+    deleteCustomerUser,
+   
 }
